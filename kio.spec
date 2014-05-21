@@ -33,6 +33,7 @@ BuildRequires: cmake(KF5Wallet)
 BuildRequires: cmake(KF5WidgetsAddons)
 BuildRequires: cmake(KF5WindowSystem)
 BuildRequires: cmake(KF5XmlGui)
+BuildRequires: cmake(KF5DocTools)
 BuildRequires: qmake5
 BuildRequires: extra-cmake-modules5
 Requires: %{libname} = %{EVRD}
