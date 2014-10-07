@@ -4,7 +4,7 @@
 %define debug_package %{nil}
 
 Name: kio
-Version: 5.1.0
+Version: 5.3.0
 Release: 1
 Source0: http://ftp5.gwdg.de/pub/linux/kde/stable/frameworks/%{version}/%{name}-%{version}.tar.xz
 Summary: The KDE Frameworks 5 framework for handling Input and Output (I/O)
@@ -67,8 +67,9 @@ Development files (Headers etc.) for %{name}.
 %install
 %makeinstall_std -C build
 %find_lang %{name}%{major}
+%find_lang kcm_webshortcuts
 
-%files -f %{name}%{major}.lang
+%files -f %{name}%{major}.lang,kcm_webshortcuts.lang
 %{_sysconfdir}/xdg/accept-languages.codes
 %{_sysconfdir}/xdg/kshorturifilterrc
 %{_bindir}/*
