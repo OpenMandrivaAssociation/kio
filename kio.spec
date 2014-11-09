@@ -2,11 +2,12 @@
 %define libname %mklibname KF5KIO %{major}
 %define devname %mklibname KF5KIO -d
 %define debug_package %{nil}
+%define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: kio
-Version: 5.3.0
+Version: 5.4.0
 Release: 1
-Source0: http://ftp5.gwdg.de/pub/linux/kde/stable/frameworks/%{version}/%{name}-%{version}.tar.xz
+Source0: http://ftp5.gwdg.de/pub/linux/kde/%{stable}/frameworks/%{version}/%{name}-%{version}.tar.xz
 Summary: The KDE Frameworks 5 framework for handling Input and Output (I/O)
 URL: http://kde.org/
 License: GPL
@@ -67,7 +68,7 @@ Development files (Headers etc.) for %{name}.
 %install
 %makeinstall_std -C build
 %find_lang %{name}%{major}
-%find_lang kcm_webshortcuts
+%find_lang kcm_webshortcuts || touch kcm_webshortcuts.lang
 
 %files -f %{name}%{major}.lang,kcm_webshortcuts.lang
 %{_sysconfdir}/xdg/accept-languages.codes
@@ -83,6 +84,11 @@ Development files (Headers etc.) for %{name}.
 %{_libdir}/libexec/kf5/*
 %doc %{_docdir}/HTML/en/kioslave5
 %{_mandir}/man8/*
+%lang(it) %{_mandir}/it/man8/*
+%lang(nl) %{_mandir}/nl/man8/*
+%lang(pt_BR) %{_mandir}/pt_BR/man8/*
+%lang(sv) %{_mandir}/sv/man8/*
+%lang(uk) %{_mandir}/uk/man8/*
 
 %files -n %{libname}
 %{_libdir}/*.so.%{major}
