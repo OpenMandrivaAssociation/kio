@@ -60,13 +60,14 @@ Development files (Headers etc.) for %{name}.
 
 %prep
 %setup -q
-%cmake
+%cmake -G Ninja \
+	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
 
 %build
-%make -C build
+ninja -C build
 
 %install
-%makeinstall_std -C build
+DESTDIR="%{buildroot}" ninja install -C build
 %find_lang %{name}%{major}
 %find_lang kcm_webshortcuts || touch kcm_webshortcuts.lang
 
@@ -80,7 +81,10 @@ Development files (Headers etc.) for %{name}.
 %{_datadir}/kf5/kcookiejar
 %{_datadir}/dbus-1/*/*
 %{_datadir}/applications/*
-%{_libdir}/plugins/*
+%{_libdir}/qt5/plugins/kcm*.so
+%{_libdir}/qt5/plugins/kf5/kded
+%{_libdir}/qt5/plugins/kf5/kio
+%{_libdir}/qt5/plugins/kf5/urifilters
 %{_libdir}/libexec/kf5/*
 %doc %{_docdir}/HTML/en/kioslave5
 %{_mandir}/man8/*
@@ -97,5 +101,5 @@ Development files (Headers etc.) for %{name}.
 %files -n %{devname}
 %{_includedir}/*
 %{_libdir}/*.so
-%{_prefix}/mkspecs
+%{_libdir}/qt5/mkspecs/modules/*
 %{_libdir}/cmake/KF5KIO
