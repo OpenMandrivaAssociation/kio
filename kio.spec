@@ -15,7 +15,10 @@ Group: System/Libraries
 BuildRequires: cmake
 BuildRequires: ninja
 BuildRequires: pkgconfig(Qt5Core)
+BuildRequires: pkgconfig(Qt5Script)
 BuildRequires: pkgconfig(Qt5Test)
+BuildRequires: pkgconfig(libxslt)
+BuildRequires: pkgconfig(mit-krb5-gssapi)
 BuildRequires: cmake(KF5Archive)
 BuildRequires: cmake(KF5Bookmarks)
 BuildRequires: cmake(KF5Codecs)
