@@ -90,6 +90,7 @@ Development files (Headers etc.) for %{name}.
 %{_libdir}/libexec/kf5/*
 %doc %{_docdir}/HTML/en/kioslave5
 %{_mandir}/man8/*
+%lang(ca) %{_mandir}/ca/man8/*
 %lang(it) %{_mandir}/it/man8/*
 %lang(nl) %{_mandir}/nl/man8/*
 %lang(pt_BR) %{_mandir}/pt_BR/man8/*
