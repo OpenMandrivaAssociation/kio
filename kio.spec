@@ -40,6 +40,8 @@ BuildRequires: cmake(KF5WindowSystem)
 BuildRequires: cmake(KF5XmlGui)
 BuildRequires: cmake(KF5DocTools)
 BuildRequires: acl-devel
+BuildRequires: attr-devel
+Requires: openmandriva-kde-translation
 Requires: %{libname} = %{EVRD}
 
 %description
