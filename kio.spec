@@ -13,6 +13,7 @@ URL: http://kde.org/
 License: GPL
 Group: System/Libraries
 Patch0: kio-5.9.0-fileplaces.patch
+Patch1: kio-5.13.0_fix_build_split_out_the_factory.patch
 BuildRequires: cmake(ECM)
 BuildRequires: pkgconfig(Qt5Core)
 BuildRequires: pkgconfig(Qt5Script)
