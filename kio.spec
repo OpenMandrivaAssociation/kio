@@ -3,6 +3,9 @@
 %define devname %mklibname KF5KIO -d
 %define debug_package %{nil}
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
+%ifarch %{ix86}
+%define _disable_ld_no_undefined 1
+%endif
 
 Name: kio
 Version: 5.13.0
