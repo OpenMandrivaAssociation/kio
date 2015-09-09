@@ -3,9 +3,6 @@
 %define devname %mklibname KF5KIO -d
 %define debug_package %{nil}
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
-%ifarch %{ix86}
-%define _disable_ld_no_undefined 1
-%endif
 
 Name: kio
 Version: 5.13.0
@@ -70,6 +67,11 @@ Development files (Headers etc.) for %{name}.
 %prep
 %setup -q
 %apply_patches
+%ifarch %{ix86}
+export CC=gcc
+export CXX=g++
+%endif
+
 %cmake_kde5
 
 %build
