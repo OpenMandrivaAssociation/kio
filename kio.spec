@@ -68,6 +68,8 @@ Development files (Headers etc.) for %{name}.
 %setup -q
 %apply_patches
 %ifarch %{ix86}
+export CC=get
+export CXX=g++
 # build fails with ld-gold
 mkdir ld
 ln -s `which ld.bfd` ld/ld
