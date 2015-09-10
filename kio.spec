@@ -6,7 +6,7 @@
 
 Name: kio
 Version: 5.13.0
-Release: 1
+Release: 2
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Summary: The KDE Frameworks 5 framework for handling Input and Output (I/O)
 URL: http://kde.org/
@@ -68,8 +68,10 @@ Development files (Headers etc.) for %{name}.
 %setup -q
 %apply_patches
 %ifarch %{ix86}
-export CC=gcc
-export CXX=g++
+# build fails with ld-gold
+mkdir ld
+ln -s `which ld.bfd` ld/ld
+export PATH=`pwd`/ld:$PATH
 %endif
 
 %cmake_kde5
