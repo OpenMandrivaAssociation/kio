@@ -13,7 +13,9 @@ URL: http://kde.org/
 License: GPL
 Group: System/Libraries
 Patch0: kio-5.9.0-fileplaces.patch
+%ifnarch %{ix86}
 Patch1: kio-5.13.0_fix_build_split_out_the_factory.patch
+%endif
 BuildRequires: cmake(ECM)
 BuildRequires: pkgconfig(Qt5Core)
 BuildRequires: pkgconfig(Qt5Script)
@@ -67,14 +69,7 @@ Development files (Headers etc.) for %{name}.
 %prep
 %setup -q
 %apply_patches
-%ifarch %{ix86}
-export CC=gcc
-export CXX=g++
-# build fails with ld-gold
-mkdir ld
-ln -s `which ld.bfd` ld/ld
-export PATH=`pwd`/ld:$PATH
-%endif
+
 
 %cmake_kde5
 
