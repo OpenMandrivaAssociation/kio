@@ -14,7 +14,8 @@ License: GPL
 Group: System/Libraries
 Patch0: kio-5.9.0-fileplaces.patch
 %ifnarch %{ix86}
-#Patch1: kio-5.13.0_fix_build_split_out_the_factory.patch
+# (tpg) this patch allows to build on x86_64
+Patch1: kio-5.13.0_fix_build_split_out_the_factory.patch
 %endif
 BuildRequires: cmake(ECM)
 BuildRequires: pkgconfig(Qt5Core)
