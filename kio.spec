@@ -12,7 +12,7 @@ Summary: The KDE Frameworks 5 framework for handling Input and Output (I/O)
 URL: http://kde.org/
 License: GPL
 Group: System/Libraries
-Patch0: kio-5.20.0-fileplaces.patch
+Patch0: kio-5.24.0-fileplaces.patch
 BuildRequires: cmake(ECM)
 BuildRequires: pkgconfig(Qt5Core)
 BuildRequires: pkgconfig(Qt5Script)
