@@ -93,7 +93,7 @@ Development files (Headers etc.) for %{name}.
 %{_libdir}/qt5/plugins/kf5/kiod
 %{_libdir}/qt5/plugins/kf5/urifilters
 %{_libdir}/libexec/kf5/*
-%doc %{_docdir}/HTML/en/kioslave5
+%doc %{_docdir}/HTML/*/kioslave5
 %{_mandir}/man8/*
 %lang(ca) %{_mandir}/ca/man8/*
 %lang(de) %{_mandir}/de/man8/*
