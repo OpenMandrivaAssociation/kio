@@ -5,7 +5,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: kio
-Version: 5.28.0
+Version: 5.29.0
 Release: 1
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Summary: The KDE Frameworks 5 framework for handling Input and Output (I/O)
@@ -94,6 +94,7 @@ Development files (Headers etc.) for %{name}.
 %{_libdir}/qt5/plugins/kf5/urifilters
 %{_libdir}/libexec/kf5/*
 %doc %{_docdir}/HTML/*/kioslave5
+%doc %{_docdir}/HTML/*/kcontrol5
 %{_mandir}/man8/*
 %lang(ca) %{_mandir}/ca/man8/*
 %lang(de) %{_mandir}/de/man8/*

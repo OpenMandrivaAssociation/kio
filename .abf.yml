@@ -1,4 +1,2 @@
-removed_sources:
-  kio-5.13.0.tar.xz: eb2caaef92fb4b420a85dc174feafc76c7df293c
 sources:
-  kio-5.28.0.tar.xz: e51352a544a23a5c8ee3dd0ab4aaa23b3d33ecc5
+  kio-5.29.0.tar.xz: 598ecce55714a616e43f012f10d8e15f637e9504
