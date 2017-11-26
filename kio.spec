@@ -6,13 +6,14 @@
 
 Name: kio
 Version: 5.40.0
-Release: 1
+Release: 2
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Summary: The KDE Frameworks 5 framework for handling Input and Output (I/O)
 URL: http://kde.org/
 License: GPL
 Group: System/Libraries
 Patch0: kio-5.24.0-fileplaces.patch
+Patch1:	https://cgit.kde.org/kio.git/patch/?id=2353119aae8f03565bc7779ed1d597d266f5afda
 BuildRequires: cmake(ECM)
 BuildRequires: pkgconfig(Qt5Core)
 BuildRequires: pkgconfig(Qt5Script)
