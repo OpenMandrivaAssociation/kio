@@ -5,17 +5,14 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: kio
-Version: 5.40.0
-Release: 3
+Version: 5.41.0
+Release: 1
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Summary: The KDE Frameworks 5 framework for handling Input and Output (I/O)
 URL: http://kde.org/
 License: GPL
 Group: System/Libraries
 Patch0: kio-5.24.0-fileplaces.patch
-# Adapt to Qt >= 5.9.3
-Patch1:	https://cgit.kde.org/kio.git/patch/?id=2353119aae8f03565bc7779ed1d597d266f5afda
-Patch2: https://cgit.kde.org/kio.git/patch/?id=298c0e734efdd8a7b66a531959e3fb5357a6495d
 BuildRequires: cmake(ECM)
 BuildRequires: pkgconfig(Qt5Core)
 BuildRequires: pkgconfig(Qt5Script)

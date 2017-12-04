@@ -1,6 +1,5 @@
-diff -urN kio-5.24.0/src/filewidgets/kfileplacesmodel.cpp kio-5.24.0-patched/src/filewidgets/kfileplacesmodel.cpp
---- kio-5.24.0/src/filewidgets/kfileplacesmodel.cpp	2016-07-03 19:16:00.000000000 +1000
-+++ kio-5.24.0-patched/src/filewidgets/kfileplacesmodel.cpp	2016-07-10 15:29:55.047095717 +1000
+--- kio-5.41.0/src/filewidgets/kfileplacesmodel.cpp.0000~	2017-12-02 21:05:51.000000000 +0100
++++ kio-5.41.0/src/filewidgets/kfileplacesmodel.cpp	2017-12-03 22:06:44.105563535 +0100
 @@ -30,6 +30,7 @@
  #include <QtCore/QMimeData>
  #include <QtCore/QTimer>
@@ -8,8 +7,8 @@ diff -urN kio-5.24.0/src/filewidgets/kfileplacesmodel.cpp kio-5.24.0-patched/src
 +#include <QtCore/QStandardPaths>
  #include <QColor>
  #include <QAction>
- #include <qmimedatabase.h>
-@@ -107,6 +108,22 @@
+ #include <QUrlQuery>
+@@ -210,6 +211,22 @@ KFilePlacesModel::KFilePlacesModel(QObje
          KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
                                                QStringLiteral("Home"), I18N_NOOP2("KFile System Bookmarks", "Home"),
                                                QUrl::fromLocalFile(QDir::homePath()), QStringLiteral("user-home"));
