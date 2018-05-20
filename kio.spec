@@ -5,7 +5,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: kio
-Version: 5.44.0
+Version: 5.46.0
 Release: 1
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Summary: The KDE Frameworks 5 framework for handling Input and Output (I/O)
@@ -76,10 +76,8 @@ Development files (Headers etc.) for %{name}.
 %ninja_install -C build
 
 %find_lang %{name}%{major}
-%find_lang kcm_webshortcuts || touch kcm_webshortcuts.lang
 
-%files -f %{name}%{major}.lang,kcm_webshortcuts.lang
-%{_sysconfdir}/dbus-1/system.d/org.kde.kio.file.conf
+%files -f %{name}%{major}.lang
 %{_sysconfdir}/xdg/accept-languages.codes
 %{_sysconfdir}/xdg/kshorturifilterrc
 %{_bindir}/*
@@ -89,13 +87,11 @@ Development files (Headers etc.) for %{name}.
 %{_datadir}/kf5/kcookiejar
 %{_datadir}/dbus-1/*/*
 %{_datadir}/applications/*
-%{_datadir}/polkit-1/actions/*
 %{_libdir}/qt5/plugins/kcm*.so
 %{_libdir}/qt5/plugins/kf5/kded
 %{_libdir}/qt5/plugins/kf5/kio
 %{_libdir}/qt5/plugins/kf5/kiod
 %{_libdir}/qt5/plugins/kf5/urifilters
-%{_libdir}/libexec/kauth/*
 %{_libdir}/libexec/kf5/*
 %doc %{_docdir}/HTML/*/kioslave5
 %doc %{_docdir}/HTML/*/kcontrol5
