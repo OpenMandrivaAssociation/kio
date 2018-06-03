@@ -5,7 +5,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: kio
-Version: 5.46.0
+Version: 5.47.0
 Release: 1
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Summary: The KDE Frameworks 5 framework for handling Input and Output (I/O)
@@ -81,6 +81,7 @@ Development files (Headers etc.) for %{name}.
 %{_sysconfdir}/xdg/accept-languages.codes
 %{_sysconfdir}/xdg/kshorturifilterrc
 %{_bindir}/*
+%{_datadir}/kconf_update/filepicker.upd
 %{_datadir}/kservicetypes5/*
 %{_datadir}/kservices5/*
 %{_datadir}/knotifications5/*
