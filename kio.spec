@@ -42,6 +42,7 @@ BuildRequires: cmake(KF5WindowSystem)
 BuildRequires: cmake(KF5XmlGui)
 BuildRequires: cmake(KF5DocTools)
 BuildRequires: pkgconfig(zlib)
+BuildRequires: pkgconfig(com_err)
 BuildRequires: acl-devel
 BuildRequires: attr-devel
 Requires: openmandriva-kde-translation
