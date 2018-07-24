@@ -6,7 +6,7 @@
 
 Name: kio
 Version: 5.48.0
-Release: 1
+Release: 2
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Summary: The KDE Frameworks 5 framework for handling Input and Output (I/O)
 URL: http://kde.org/
@@ -64,6 +64,7 @@ The KDE Frameworks 5 framework for handling Input and Output (I/O).
 Summary: Development files for %{name}
 Group: Development/C
 Requires: %{libname} = %{EVRD}
+Requires: pkgconfig(Qt5Concurrent)
 
 %description -n %{devname}
 Development files (Headers etc.) for %{name}.
