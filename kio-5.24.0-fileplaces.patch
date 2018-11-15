@@ -1,6 +1,6 @@
-diff -up kio-5.46.0/src/filewidgets/kfileplacesmodel.cpp.0000~ kio-5.46.0/src/filewidgets/kfileplacesmodel.cpp
---- kio-5.46.0/src/filewidgets/kfileplacesmodel.cpp.0000~	2018-05-20 14:46:02.952656062 +0200
-+++ kio-5.46.0/src/filewidgets/kfileplacesmodel.cpp	2018-05-20 14:48:20.250448268 +0200
+diff -up kio-5.52.0/src/filewidgets/kfileplacesmodel.cpp.0000~ kio-5.52.0/src/filewidgets/kfileplacesmodel.cpp
+--- kio-5.52.0/src/filewidgets/kfileplacesmodel.cpp.0000~	2018-11-03 19:02:08.000000000 +0100
++++ kio-5.52.0/src/filewidgets/kfileplacesmodel.cpp	2018-11-15 19:30:16.845744745 +0100
 @@ -30,6 +30,7 @@
  #include <QMimeData>
  #include <QTimer>
@@ -9,11 +9,10 @@ diff -up kio-5.46.0/src/filewidgets/kfileplacesmodel.cpp.0000~ kio-5.46.0/src/fi
  #include <QColor>
  #include <QAction>
  #include <QUrlQuery>
-@@ -240,6 +241,21 @@ KFilePlacesModel::KFilePlacesModel(const
-                                               QStringLiteral("Home"), I18N_NOOP2("KFile System Bookmarks", "Home"),
-                                               QUrl::fromLocalFile(QDir::homePath()), QStringLiteral("user-home"));
+@@ -242,6 +243,20 @@ KFilePlacesModel::KFilePlacesModel(const
+                                                 QUrl::fromLocalFile(downloadFolder), QStringLiteral("folder-downloads"));
+         }
  
-+
 +        // We add Documents, Music, Downloads, Pictures, Videos
 +        KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
 +                                              QStringLiteral("Documents"), ki18nc("KFile System Bookmarks", "Documents").toString("openmandriva-kde-translation"),
@@ -28,6 +27,6 @@ diff -up kio-5.46.0/src/filewidgets/kfileplacesmodel.cpp.0000~ kio-5.46.0/src/fi
 +                                              QStringLiteral("Pictures"), ki18nc("KFile System Bookmarks", "Pictures").toString("openmandriva-kde-translation"),
 +                                              QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::PicturesLocation)), "folder-image");
 +
-         // Some distros may not create various standard XDG folders by default
-         // so check for their existance before adding bookmarks for them
-         const QString desktopFolder = QStandardPaths::writableLocation(QStandardPaths::DesktopLocation);
+         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
+                                               QStringLiteral("Network"), I18N_NOOP2("KFile System Bookmarks", "Network"),
+                                               QUrl(QStringLiteral("remote:/")), QStringLiteral("folder-network"));
