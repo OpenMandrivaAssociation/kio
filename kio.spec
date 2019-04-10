@@ -5,8 +5,8 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: kio
-Version: 5.56.0
-Release: 2
+Version: 5.57.0
+Release: 1
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Summary: The KDE Frameworks 5 framework for handling Input and Output (I/O)
 URL: http://kde.org/
@@ -46,6 +46,8 @@ BuildRequires: pkgconfig(zlib)
 BuildRequires: pkgconfig(com_err)
 BuildRequires: acl-devel
 BuildRequires: attr-devel
+# For QCH format docs
+BuildRequires: qt5-assistant
 Requires: openmandriva-kde-translation
 Requires: %{libname} = %{EVRD}
 Conflicts: kdelibs4support < 5.30.0
@@ -70,9 +72,16 @@ Requires: pkgconfig(Qt5Concurrent)
 %description -n %{devname}
 Development files (Headers etc.) for %{name}.
 
+%package -n %{name}-devel-docs
+Summary: Developer documentation for %{name} for use with Qt Assistant
+Group: Documentation
+Suggests: %{devname} = %{EVRD}
+
+%description -n %{name}-devel-docs
+Developer documentation for %{name} for use with Qt Assistant
+
 %prep
-%setup -q
-%apply_patches
+%autosetup -p1
 %cmake_kde5
 
 %build
@@ -122,3 +131,6 @@ Development files (Headers etc.) for %{name}.
 %{_libdir}/*.so
 %{_libdir}/qt5/mkspecs/modules/*
 %{_libdir}/cmake/KF5KIO
+
+%files -n %{name}-devel-docs
+%{_docdir}/qt5/*.{tags,qch}
