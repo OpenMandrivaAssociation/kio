@@ -47,6 +47,7 @@ BuildRequires: pkgconfig(com_err)
 BuildRequires: acl-devel
 BuildRequires: attr-devel
 # For QCH format docs
+BuildRequires: doxygen
 BuildRequires: qt5-assistant
 Requires: openmandriva-kde-translation
 Requires: %{libname} = %{EVRD}
