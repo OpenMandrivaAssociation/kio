@@ -1,6 +1,6 @@
-diff -up kio-5.62.0/src/filewidgets/kfileplacesmodel.cpp.1~ kio-5.62.0/src/filewidgets/kfileplacesmodel.cpp
---- kio-5.62.0/src/filewidgets/kfileplacesmodel.cpp.1~	2019-09-07 16:00:19.000000000 +0200
-+++ kio-5.62.0/src/filewidgets/kfileplacesmodel.cpp	2019-09-11 21:46:28.954711333 +0200
+diff -up kio-5.64.0/src/filewidgets/kfileplacesmodel.cpp.1~ kio-5.64.0/src/filewidgets/kfileplacesmodel.cpp
+--- kio-5.64.0/src/filewidgets/kfileplacesmodel.cpp.1~	2019-11-02 13:57:24.000000000 +0100
++++ kio-5.64.0/src/filewidgets/kfileplacesmodel.cpp	2019-11-03 19:26:52.692743647 +0100
 @@ -34,6 +34,7 @@
  #include <QMimeData>
  #include <QTimer>
@@ -9,7 +9,7 @@ diff -up kio-5.62.0/src/filewidgets/kfileplacesmodel.cpp.1~ kio-5.62.0/src/filew
  #include <QAction>
  #include <qmimedatabase.h>
  
-@@ -297,6 +298,20 @@ KFilePlacesModel::KFilePlacesModel(const
+@@ -305,6 +306,20 @@ KFilePlacesModel::KFilePlacesModel(const
                                                  QUrl::fromLocalFile(downloadFolder), QStringLiteral("folder-downloads"));
          }
  
@@ -28,5 +28,5 @@ diff -up kio-5.62.0/src/filewidgets/kfileplacesmodel.cpp.1~ kio-5.62.0/src/filew
 +                                              QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::PicturesLocation)), "folder-image");
 +
          KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                               QStringLiteral("Network"), I18N_NOOP2("KFile System Bookmarks", "Network"),
+                                               I18NC_NOOP("KFile System Bookmarks", "Network"),
                                                QUrl(QStringLiteral("remote:/")), QStringLiteral("folder-network"));
