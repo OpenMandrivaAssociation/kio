@@ -1,7 +1,7 @@
-diff -up kio-5.64.0/src/filewidgets/kfileplacesmodel.cpp.1~ kio-5.64.0/src/filewidgets/kfileplacesmodel.cpp
---- kio-5.64.0/src/filewidgets/kfileplacesmodel.cpp.1~	2019-11-02 13:57:24.000000000 +0100
-+++ kio-5.64.0/src/filewidgets/kfileplacesmodel.cpp	2019-11-03 19:26:52.692743647 +0100
-@@ -34,6 +34,7 @@
+diff -up kio-5.65.0/src/filewidgets/kfileplacesmodel.cpp.1~ kio-5.65.0/src/filewidgets/kfileplacesmodel.cpp
+--- kio-5.65.0/src/filewidgets/kfileplacesmodel.cpp.1~	2019-12-07 22:44:42.000000000 +0100
++++ kio-5.65.0/src/filewidgets/kfileplacesmodel.cpp	2019-12-09 19:23:31.578881921 +0100
+@@ -31,6 +31,7 @@
  #include <QMimeData>
  #include <QTimer>
  #include <QFile>
@@ -9,23 +9,23 @@ diff -up kio-5.64.0/src/filewidgets/kfileplacesmodel.cpp.1~ kio-5.64.0/src/filew
  #include <QAction>
  #include <qmimedatabase.h>
  
-@@ -305,6 +306,20 @@ KFilePlacesModel::KFilePlacesModel(const
+@@ -303,6 +304,20 @@ KFilePlacesModel::KFilePlacesModel(const
                                                  QUrl::fromLocalFile(downloadFolder), QStringLiteral("folder-downloads"));
          }
  
 +        // We add Documents, Music, Downloads, Pictures, Videos
 +        KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-+                                              QStringLiteral("Documents"), ki18nc("KFile System Bookmarks", "Documents").toString("openmandriva-kde-translation"),
-+                                              QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation)), "folder-documents");
++                                              I18NC_NOOP("KFile System Bookmarks", "Documents"),
++                                              QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation)), QStringLiteral("folder-documents"));
 +        KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-+                                              QStringLiteral("Music"), ki18nc("KFile System Bookmarks", "Music").toString("openmandriva-kde-translation"),
-+                                              QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::MusicLocation)), "folder-sound");
++                                              I18NC_NOOP("KFile System Bookmarks", "Music"),
++                                              QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::MusicLocation)), QStringLiteral("folder-sound"));
 +        KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-+                                              QStringLiteral("Videos"), ki18nc("KFile System Bookmarks", "Videos").toString("openmandriva-kde-translation"),
-+                                              QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::MoviesLocation)), "folder-video");
++                                              I18NC_NOOP("KFile System Bookmarks", "Videos"),
++                                              QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::MoviesLocation)), QStringLiteral("folder-video"));
 +        KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-+                                              QStringLiteral("Pictures"), ki18nc("KFile System Bookmarks", "Pictures").toString("openmandriva-kde-translation"),
-+                                              QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::PicturesLocation)), "folder-image");
++                                              I18NC_NOOP("KFile System Bookmarks", "Pictures"),
++                                              QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::PicturesLocation)), QStringLiteral("folder-image"));
 +
          KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
                                                I18NC_NOOP("KFile System Bookmarks", "Network"),
