@@ -9,14 +9,11 @@ diff -up kio-5.65.0/src/filewidgets/kfileplacesmodel.cpp.1~ kio-5.65.0/src/filew
  #include <QAction>
  #include <qmimedatabase.h>
  
-@@ -303,6 +304,20 @@ KFilePlacesModel::KFilePlacesModel(const
+@@ -303,6 +304,17 @@ KFilePlacesModel::KFilePlacesModel(const
                                                  QUrl::fromLocalFile(downloadFolder), QStringLiteral("folder-downloads"));
          }
  
-+        // We add Documents, Music, Downloads, Pictures, Videos
-+        KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-+                                              I18NC_NOOP("KFile System Bookmarks", "Documents"),
-+                                              QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation)), QStringLiteral("folder-documents"));
++        // We add Music, Downloads, Pictures, Videos
 +        KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
 +                                              I18NC_NOOP("KFile System Bookmarks", "Music"),
 +                                              QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::MusicLocation)), QStringLiteral("folder-sound"));
