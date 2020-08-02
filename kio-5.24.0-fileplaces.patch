@@ -1,13 +1,13 @@
-diff -up kio-5.65.0/src/filewidgets/kfileplacesmodel.cpp.1~ kio-5.65.0/src/filewidgets/kfileplacesmodel.cpp
---- kio-5.65.0/src/filewidgets/kfileplacesmodel.cpp.1~	2019-12-07 22:44:42.000000000 +0100
-+++ kio-5.65.0/src/filewidgets/kfileplacesmodel.cpp	2019-12-09 19:23:31.578881921 +0100
+diff -up kio-5.73.0/src/filewidgets/kfileplacesmodel.cpp.1~ kio-5.73.0/src/filewidgets/kfileplacesmodel.cpp
+--- kio-5.73.0/src/filewidgets/kfileplacesmodel.cpp.1~	2020-08-01 21:49:16.000000000 +0200
++++ kio-5.73.0/src/filewidgets/kfileplacesmodel.cpp	2020-08-03 00:47:58.263053345 +0200
 @@ -31,6 +31,7 @@
  #include <QMimeData>
  #include <QTimer>
  #include <QFile>
 +#include <QStandardPaths>
  #include <QAction>
- #include <qmimedatabase.h>
+ #include <QMimeDatabase>
  
 @@ -303,6 +304,17 @@ KFilePlacesModel::KFilePlacesModel(const
                                                  QUrl::fromLocalFile(downloadFolder), QStringLiteral("folder-downloads"));

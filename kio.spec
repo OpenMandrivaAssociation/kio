@@ -5,7 +5,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: kio
-Version: 5.72.0
+Version: 5.73.0
 Release: 1
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Summary: The KDE Frameworks 5 framework for handling Input and Output (I/O)
@@ -106,7 +106,7 @@ Qt Designer plugin for handling %{name} widgets
 %find_lang %{name}%{major}
 
 %files -f %{name}%{major}.lang
-%{_datadir}/qlogging-categories5/kio.categories
+%{_datadir}/qlogging-categories5/kio.*categories
 %{_sysconfdir}/xdg/accept-languages.codes
 %{_sysconfdir}/xdg/kshorturifilterrc
 %{_bindir}/*
