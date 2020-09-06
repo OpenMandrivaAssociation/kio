@@ -5,7 +5,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: kio
-Version: 5.73.0
+Version: 5.74.0
 Release: 1
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Summary: The KDE Frameworks 5 framework for handling Input and Output (I/O)
@@ -103,7 +103,7 @@ Qt Designer plugin for handling %{name} widgets
 %install
 %ninja_install -C build
 
-%find_lang %{name}%{major}
+%find_lang %{name}%{major} --with-man --with-html --all-name
 
 %files -f %{name}%{major}.lang
 %{_datadir}/qlogging-categories5/kio.*categories
@@ -123,18 +123,7 @@ Qt Designer plugin for handling %{name} widgets
 %{_libdir}/qt5/plugins/kf5/kiod
 %{_libdir}/qt5/plugins/kf5/urifilters
 %{_libdir}/libexec/kf5/*
-%doc %{_docdir}/HTML/*/kioslave5
-%doc %{_docdir}/HTML/*/kcontrol5
 %{_mandir}/man8/*
-%lang(ca) %{_mandir}/ca/man8/*
-%lang(de) %{_mandir}/de/man8/*
-%lang(es) %{_mandir}/es/man8/*
-%lang(it) %{_mandir}/it/man8/*
-%lang(nl) %{_mandir}/nl/man8/*
-%lang(pt) %{_mandir}/pt/man8/*
-%lang(pt_BR) %{_mandir}/pt_BR/man8/*
-%lang(sv) %{_mandir}/sv/man8/*
-%lang(uk) %{_mandir}/uk/man8/*
 
 %files -n %{libname}
 %{_libdir}/*.so.%{major}*

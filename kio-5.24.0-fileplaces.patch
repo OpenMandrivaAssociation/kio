@@ -1,7 +1,7 @@
-diff -up kio-5.73.0/src/filewidgets/kfileplacesmodel.cpp.1~ kio-5.73.0/src/filewidgets/kfileplacesmodel.cpp
---- kio-5.73.0/src/filewidgets/kfileplacesmodel.cpp.1~	2020-08-01 21:49:16.000000000 +0200
-+++ kio-5.73.0/src/filewidgets/kfileplacesmodel.cpp	2020-08-03 00:47:58.263053345 +0200
-@@ -31,6 +31,7 @@
+diff -up kio-5.74.0/src/filewidgets/kfileplacesmodel.cpp.1~ kio-5.74.0/src/filewidgets/kfileplacesmodel.cpp
+--- kio-5.74.0/src/filewidgets/kfileplacesmodel.cpp.1~	2020-09-06 12:28:23.000000000 +0200
++++ kio-5.74.0/src/filewidgets/kfileplacesmodel.cpp	2020-09-06 23:12:17.051312615 +0200
+@@ -19,6 +19,7 @@
  #include <QMimeData>
  #include <QTimer>
  #include <QFile>
@@ -9,21 +9,17 @@ diff -up kio-5.73.0/src/filewidgets/kfileplacesmodel.cpp.1~ kio-5.73.0/src/filew
  #include <QAction>
  #include <QMimeDatabase>
  
-@@ -303,6 +304,17 @@ KFilePlacesModel::KFilePlacesModel(const
-                                                 QUrl::fromLocalFile(downloadFolder), QStringLiteral("folder-downloads"));
-         }
+@@ -307,6 +308,13 @@ KFilePlacesModel::KFilePlacesModel(const
+                 createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Downloads"),
+                                      QUrl::fromLocalFile(downloadFolder), QStringLiteral("folder-downloads"));
+             }
++            // We add Music, Downloads, Pictures, Videos
++            createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Music"),
++                                 QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::MusicLocation)), QStringLiteral("folder-sound"));
++            createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Videos"),
++                                 QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::MoviesLocation)), QStringLiteral("folder-video"));
++            createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Pictures"),
++                                 QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::PicturesLocation)), QStringLiteral("folder-image"));
  
-+        // We add Music, Downloads, Pictures, Videos
-+        KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-+                                              I18NC_NOOP("KFile System Bookmarks", "Music"),
-+                                              QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::MusicLocation)), QStringLiteral("folder-sound"));
-+        KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-+                                              I18NC_NOOP("KFile System Bookmarks", "Videos"),
-+                                              QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::MoviesLocation)), QStringLiteral("folder-video"));
-+        KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-+                                              I18NC_NOOP("KFile System Bookmarks", "Pictures"),
-+                                              QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::PicturesLocation)), QStringLiteral("folder-image"));
-+
-         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                               I18NC_NOOP("KFile System Bookmarks", "Network"),
-                                               QUrl(QStringLiteral("remote:/")), QStringLiteral("folder-network"));
+             createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Network"),
+                                  QUrl(QStringLiteral("remote:/")), QStringLiteral("folder-network"));
