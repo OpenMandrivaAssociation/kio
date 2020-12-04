@@ -6,7 +6,7 @@
 
 Name: kio
 Version: 5.76.0
-Release: 2
+Release: 3
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Summary: The KDE Frameworks 5 framework for handling Input and Output (I/O)
 URL: http://kde.org/
@@ -42,6 +42,7 @@ BuildRequires: cmake(KF5WidgetsAddons)
 BuildRequires: cmake(KF5WindowSystem)
 BuildRequires: cmake(KF5XmlGui)
 BuildRequires: cmake(KF5DocTools)
+BuildRequires: cmake(KDED)
 BuildRequires: pkgconfig(zlib)
 BuildRequires: pkgconfig(com_err)
 BuildRequires: acl-devel
@@ -51,6 +52,7 @@ BuildRequires: doxygen
 BuildRequires: qt5-assistant
 Requires: openmandriva-kde-translation
 Requires: %{libname} = %{EVRD}
+Requires: kded
 Conflicts: kdelibs4support < 5.30.0
 
 %description
