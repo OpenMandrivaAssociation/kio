@@ -5,10 +5,9 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: kio
-Version: 5.78.0
-Release: 2
+Version: 5.79.0
+Release: 1
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
-Patch0: https://invent.kde.org/frameworks/kio/commit/a183dd0d1ee0659e5341c7cb4117df27edd6f125.patch
 Summary: The KDE Frameworks 5 framework for handling Input and Output (I/O)
 URL: http://kde.org/
 License: GPL
