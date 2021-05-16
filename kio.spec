@@ -5,12 +5,13 @@
 
 Name: kio
 Version: 5.82.0
-Release: 2
+Release: 3
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 # Backports recommended by KDE ML
 Patch0: https://invent.kde.org/frameworks/kio/commit/c748d6987252fafc296cde9351b289ef734cf861.patch
 Patch1: https://invent.kde.org/frameworks/kio/commit/e79da836c34fce66231e396c7215314d0eba51b4.patch
 Patch2: https://invent.kde.org/frameworks/kio/commit/c19876052ecec18a87a82f5950e8909e22e895ba.patch
+Patch3: https://invent.kde.org/frameworks/kio/commit/71484c97dee0c977a00f141123d8ccd9b93c2e96.patch
 Summary: The KDE Frameworks 5 framework for handling Input and Output (I/O)
 URL: http://kde.org/
 License: GPL
