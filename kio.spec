@@ -44,6 +44,7 @@ BuildRequires: cmake(KF5DocTools)
 BuildRequires: cmake(KDED)
 BuildRequires: pkgconfig(zlib)
 BuildRequires: pkgconfig(com_err)
+BuildRequires: pkgconfig(mount)
 BuildRequires: acl-devel
 BuildRequires: attr-devel
 # For QCH format docs
