@@ -5,7 +5,7 @@
 
 Name: kio
 Version: 5.85.0
-Release: 1
+Release: 2
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Summary: The KDE Frameworks 5 framework for handling Input and Output (I/O)
 URL: http://kde.org/
@@ -105,6 +105,11 @@ Qt Designer plugin for handling %{name} widgets
 %ninja_install -C build
 
 %find_lang %{name}%{major} --with-man --with-html --all-name
+
+cd %{buildroot}%{_libdir}/qt5/plugins/kf5/kio
+for i in kio_*.so; do
+	mv $i ${i/kio_/}
+done
 
 %files -f %{name}%{major}.lang
 %{_datadir}/qlogging-categories5/kio.*categories
