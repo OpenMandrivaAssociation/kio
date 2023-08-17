@@ -57,6 +57,7 @@ Conflicts: kdelibs4support < 5.30.0
 # We get this from Plasma 6 these days
 Requires: kcookiejar
 Requires: kio-dbus-services
+Recommends: switcheroo-control
 
 %description
 The KDE Frameworks 5 framework for handling Input and Output (I/O).
