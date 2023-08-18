@@ -5,7 +5,7 @@
 
 Name: kio
 Version: 5.109.0
-Release: 3
+Release: 4
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Summary: The KDE Frameworks 5 framework for handling Input and Output (I/O)
 URL: http://kde.org/
@@ -54,8 +54,8 @@ Requires: openmandriva-kde-translation
 Requires: %{libname} = %{EVRD}
 Requires: kded
 Conflicts: kdelibs4support < 5.30.0
+Obsoletes: kcookiejar < 5.240.0-1
 # We get this from Plasma 6 these days
-Requires: kcookiejar
 Requires: kio-dbus-services
 Recommends: switcheroo-control
 
@@ -110,8 +110,6 @@ Qt Designer plugin for handling %{name} widgets
 
 # We get this from kf6-kio now...
 rm -f \
-	%{buildroot}%{_bindir}/kcookiejar5 \
-	%{buildroot}%{_datadir}/dbus-1/services/org.kde.kcookiejar5.service \
 	%{buildroot}%{_datadir}/dbus-1/services/org.kde.kiod5.service \
 	%{buildroot}%{_datadir}/dbus-1/services/org.kde.kioexecd.service \
 	%{buildroot}%{_datadir}/dbus-1/services/org.kde.kpasswdserver.service \
@@ -135,6 +133,7 @@ done
 %{_datadir}/knotifications5/*
 %{_datadir}/kf5/kcookiejar
 %{_datadir}/applications/*
+%{_datadir}/dbus-1/services/org.kde.kcookiejar5.service
 %{_datadir}/dbus-1/interfaces/*
 %{_libdir}/qt5/plugins/kcm*.so
 %{_libdir}/qt5/plugins/kf5/kded
