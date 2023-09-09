@@ -5,7 +5,7 @@
 
 Name: kio
 Version: 5.109.0
-Release: 4
+Release: 5
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Summary: The KDE Frameworks 5 framework for handling Input and Output (I/O)
 URL: http://kde.org/
@@ -55,8 +55,8 @@ Requires: %{libname} = %{EVRD}
 Requires: kded
 Conflicts: kdelibs4support < 5.30.0
 Obsoletes: kcookiejar < 5.240.0-1
-# We get this from Plasma 6 these days
-Requires: kio-dbus-services
+# Used to be shared with plasma6, changed names now
+Obsoletes: kio-dbus-services < 5.240.0-1
 Recommends: switcheroo-control
 
 %description
@@ -108,13 +108,6 @@ Qt Designer plugin for handling %{name} widgets
 %install
 %ninja_install -C build
 
-# We get this from kf6-kio now...
-rm -f \
-	%{buildroot}%{_datadir}/dbus-1/services/org.kde.kiod5.service \
-	%{buildroot}%{_datadir}/dbus-1/services/org.kde.kioexecd.service \
-	%{buildroot}%{_datadir}/dbus-1/services/org.kde.kpasswdserver.service \
-	%{buildroot}%{_datadir}/dbus-1/services/org.kde.kssld5.service
-
 %find_lang %{name}%{major} --with-man --with-html --all-name
 
 cd %{buildroot}%{_libdir}/qt5/plugins/kf5/kio
@@ -144,6 +137,10 @@ done
 %{_libdir}/qt5/plugins/plasma/kcms/systemsettings_qwidgets
 %{_libdir}/libexec/kf5/*
 %{_mandir}/man8/*
+%{_datadir}/dbus-1/services/org.kde.kiod5.service
+%{_datadir}/dbus-1/services/org.kde.kioexecd.service
+%{_datadir}/dbus-1/services/org.kde.kpasswdserver.service
+%{_datadir}/dbus-1/services/org.kde.kssld5.service
 
 %files -n %{libname}
 %{_libdir}/*.so.%{major}*
