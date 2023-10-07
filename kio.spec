@@ -5,7 +5,7 @@
 
 Name: kio
 Version: 5.110.0
-Release: 2
+Release: 3
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Patch0: https://invent.kde.org/frameworks/kio/-/commit/48322f44323a1fc09305d66d9093fe6c3780709e.patch
 Summary: The KDE Frameworks 5 framework for handling Input and Output (I/O)
