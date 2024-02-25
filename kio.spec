@@ -5,7 +5,7 @@
 
 Name: kio
 Version: 5.115.0
-Release: 1
+Release: 2
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Summary: The KDE Frameworks 5 framework for handling Input and Output (I/O)
 URL: http://kde.org/
@@ -98,6 +98,19 @@ Qt Designer plugin for handling %{name} widgets
 %files designer
 %{_libdir}/qt5/plugins/designer/*.so
 
+# This is split out because if clashes with plasma6-kio-extras
+%package kcm_trash
+Summary: KCM 5.x module controlling the trash
+Group: System/Libraries
+Requires: kio = %{EVRD}
+Supplements: plasma-desktop < 5.27.50
+
+%description kcm_trash
+KCM 5.x module controlling the trash
+
+%files kcm_trash
+%{_datadir}/applications/kcm_trash.desktop
+
 %prep
 %autosetup -p1
 %cmake_kde5
@@ -125,7 +138,7 @@ done
 %{_datadir}/kservices5/*
 %{_datadir}/knotifications5/*
 %{_datadir}/kf5/kcookiejar
-%{_datadir}/applications/*
+%{_datadir}/applications/ktelnetservice5.desktop
 %{_datadir}/dbus-1/services/org.kde.kcookiejar5.service
 %{_datadir}/dbus-1/interfaces/*
 %{_libdir}/qt5/plugins/kcm*.so
