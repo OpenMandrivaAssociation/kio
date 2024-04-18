@@ -1,0 +1,29 @@
+From 341a75c7e42ea8bcea07d0a0c0044a5a4f342e07 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?M=C3=A9ven=20Car?= <meven.car@kdemail.net>
+Date: Tue, 9 Apr 2024 04:41:13 +0000
+Subject: [PATCH] kurlnavigatorbutton: prevent
+
+---
+ src/filewidgets/kurlnavigatorbutton.cpp | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/src/filewidgets/kurlnavigatorbutton.cpp b/src/filewidgets/kurlnavigatorbutton.cpp
+index 41dc0a77a4..22284b3dbf 100644
+--- a/src/filewidgets/kurlnavigatorbutton.cpp
++++ b/src/filewidgets/kurlnavigatorbutton.cpp
+@@ -320,8 +320,10 @@ void KUrlNavigatorButton::dragMoveEvent(QDragMoveEvent *event)
+         if (m_openSubDirsTimer->isActive()) {
+             cancelSubDirsRequest();
+         }
+-        m_subDirsMenu->deleteLater();
+-        m_subDirsMenu = nullptr;
++        if (m_subDirsMenu) {
++            m_subDirsMenu->deleteLater();
++            m_subDirsMenu = nullptr;
++        }
+         m_hoverArrow = false;
+         update();
+     }
+-- 
+GitLab
+
