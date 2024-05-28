@@ -5,7 +5,7 @@
 
 Name: kio
 Version: 5.116.0
-Release: 1
+Release: 2
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Patch0: https://invent.kde.org/frameworks/kio/-/commit/341a75c7e42ea8bcea07d0a0c0044a5a4f342e07.patch
 Summary: The KDE Frameworks 5 framework for handling Input and Output (I/O)
@@ -110,7 +110,7 @@ Supplements: plasma-desktop < 5.27.50
 KCM 5.x module controlling the trash
 
 %files kcm_trash
-%{_datadir}/applications/kcm_trash.desktop
+%{_datadir}/applications/kcm_trash5.desktop
 
 %prep
 %autosetup -p1
@@ -128,6 +128,9 @@ cd %{buildroot}%{_libdir}/qt5/plugins/kf5/kio
 for i in kio_*.so; do
 	mv $i ${i/kio_/}
 done
+
+# Don't clash with P6
+mv %{buildroot}%{_datadir}/applications/kcm_trash.desktop %{buildroot}%{_datadir}/applications/kcm_trash5.desktop
 
 %files -f %{name}%{major}.lang
 %{_datadir}/qlogging-categories5/kio.*categories
