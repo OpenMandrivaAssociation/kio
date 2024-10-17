@@ -9,7 +9,7 @@ Release: 3
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Patch0: https://invent.kde.org/frameworks/kio/-/commit/341a75c7e42ea8bcea07d0a0c0044a5a4f342e07.patch
 Summary: The KDE Frameworks 5 framework for handling Input and Output (I/O)
-URL: http://kde.org/
+URL: https://kde.org/
 License: GPL
 Group: System/Libraries
 BuildRequires: cmake(ECM)
